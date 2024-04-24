@@ -1,153 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
-  <link rel="stylesheet" href="static/style1.css">
-  <title>BayesVision</title>
-</head>
-<body>
-  <nav>
-    <div class="container">
-      <img src="img/Original on Transparent.png">
-      <a href="/logout" class="logout-btn">Logout</a>
-      <div class="menu-toggle"></div>
-    </div>
-  </nav>
-
-  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="refererChart"></canvas>
-  </div>
-  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="radialBarChart"></canvas>
-  </div>
-  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="dailyVisitorsChart"></canvas>
-  </div>
-  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="weeklyVisitorsChart"></canvas>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-  <script>
-    // Referer Chart
-    var refererCtx = document.getElementById('refererChart').getContext('2d');
-    var refererChart = new Chart(refererCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Search Engine', 'Direct', 'Email', 'Union Ads', 'Video Ads'],
-        datasets: [{
-          data: [1048, 735, 580, 484, 300],
-          backgroundColor: [
-            '#ff6384',
-            '#36a2eb',
-            '#ffcd56',
-            '#ff9f40',
-            '#4bc0c0'
-          ]
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'left',
-          },
-          title: {
-            display: true,
-            text: 'Referer of a Website',
-            subText: 'Fake Data',
-          }
-        }
-      }
-    });
-
-    // Radial Bar Chart
-    var radialBarCtx = document.getElementById('radialBarChart').getContext('2d');
-    var radialBarChart = new Chart(radialBarCtx, {
-      type: 'bar',
-      data: {
-        labels: ['a', 'b', 'c', 'd'],
-        datasets: [{
-          label: 'Radial Polar Bar Label Position (middle)',
-          data: [2, 1.2, 2.4, 3.6],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Radial Polar Bar Label Position (middle)'
-          }
-        }
-      }
-    });
-
-    // Daily Visitors Chart
-    var dailyVisitorsCtx = document.getElementById('dailyVisitorsChart').getContext('2d');
-    var dailyVisitorsChart = new Chart(dailyVisitorsCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'Daily Visitors',
-          data: [120, 200, 150, 80, 70, 110, 130],
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Daily Visitors'
-          }
-        }
-      }
-    });
-
-    // Weekly Visitors Chart
-    var weeklyVisitorsCtx = document.getElementById('weeklyVisitorsChart').getContext('2d');
-    var weeklyVisitorsChart = new Chart(weeklyVisitorsCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'Weekly Visitors',
-          data: [10, 52, 200, 334, 390, 330, 220],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255, 99, 132, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Weekly Visitors'
-          }
-        }
-      }
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/style1.css" />
+    <title>BayesVision</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <img src="img/Original on Transparent.png" />
+        <a href="/logout" class="logout-btn">Logout</a>
+        <div class="menu-toggle"></div>
+      </div>
+    </nav>
+  </body>
 </html>
-
