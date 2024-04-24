@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="static/style1.css" />
     <title>BayesVision</title>
+    <!-- Include ECharts library -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
   </head>
   <body>
     <nav>
@@ -15,7 +16,47 @@
         <div class="menu-toggle"></div>
       </div>
     </nav>
-      <script src="script.js"></script>
-    </div>
+    <!-- Div to render the chart -->
+    <div id="chart" style="width: 600px; height: 400px"></div>
+
+    <script>
+      // JavaScript code for the chart
+      var option = {
+        title: [
+          {
+            text: "Radial Polar Bar Label Position (middle)",
+          },
+        ],
+        polar: {
+          radius: [30, "80%"],
+        },
+        radiusAxis: {
+          max: 4,
+        },
+        angleAxis: {
+          type: "category",
+          data: ["a", "b", "c", "d"],
+          startAngle: 75,
+        },
+        tooltip: {},
+        series: {
+          type: "bar",
+          data: [2, 1.2, 2.4, 3.6],
+          coordinateSystem: "polar",
+          label: {
+            show: true,
+            position: "middle",
+            formatter: "{b}: {c}",
+          },
+        },
+        animation: false,
+      };
+
+      // Initialize ECharts instance
+      var myChart = echarts.init(document.getElementById("chart"));
+
+      // Set chart options and render
+      myChart.setOption(option);
+    </script>
   </body>
 </html>
