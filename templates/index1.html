@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/style1.css" />
+    <title>BayesVision</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <img src="img/Original on Transparent.png" />
+        <a href="/logout" class="logout-btn">Logout</a>
+        <div class="menu-toggle"></div>
+      </div>
+    </nav>
+    <img src="data:image/png;base64,{{ chart_data }}" alt="Pie Chart" />
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+
+    <!-- Input to select Excel file -->
+    <input type="file" id="file-input" accept=".xlsx,.xls" />
+
+    <!-- Chart container -->
+    <div class="chart-container">
+      <canvas id="bar-chart"></canvas>
+    </div>
+
+    <script>
+      // Function to read Excel file and create bar chart
+      function readExcelFileAndCreateChart(file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var data = new Uint8Array(e.target.result);
+          var workbook = XLSX.read(data, { type: "array" });
+          var sheetName = workbook.SheetNames[0];
+          var sheet = workbook.Sheets[sheetName];
+          var dataset = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+          // Assuming the first column contains labels and the second column contains data
+          var labels = [];
+          var data = [];
+          for (var i = 0; i < dataset.length; i++) {
+            labels.push(dataset[i][0]);
+            data.push(dataset[i][1]);
+          }
+
+          var ctx = document.getElementById("bar-chart").getContext("2d");
+          var barChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: "Data",
+                  data: data,
+                  backgroundColor: "rgba(54, 162, 235, 0.5)",
+                  borderColor: "rgba(54, 162, 235, 1)",
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                  },
+                ],
+              },
+              title: {
+                display: true,
+                text: "Bar Chart",
+              },
+            },
+          });
+        };
+        reader.readAsArrayBuffer(file);
+      }
+
+      // Event listener for file input change
+      document
+        .getElementById("file-input")
+        .addEventListener("change", function (e) {
+          var file = e.target.files[0];
+          readExcelFileAndCreateChart(file);
+        });
+    </script>
+  </body>
+</html>

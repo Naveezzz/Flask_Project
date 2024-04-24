@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('img/1will.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.outer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  color: aliceblue;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  color: aliceblue;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.submit-button {
+  background-color: #13adeb;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 130px; /* Increase the width */
+  height: 45px; /* Increase the height */
+  border-radius: 10px; /* Add a curved border */
+  display: block; /* Align the button in the center */
+  margin: 0 auto;
+}
+
+.submit-button:hover {
+  background-color: #13adeb;
+}
